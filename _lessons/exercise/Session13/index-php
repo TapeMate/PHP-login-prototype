@@ -1,0 +1,78 @@
+<?php
+// strict type declaration
+declare(strict_types=1);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <?php
+
+    // global scope
+    $test = "Daniel";
+
+    // local scope
+    function myFunction()
+    {
+        //Define a local variable
+        $localVar = "Hello World!";
+
+        // Use the local variable
+        return $GLOBALS["test"];
+    }
+
+    echo myFunction();
+
+    // static variable
+    function myFunction2()
+    {
+        // Declare a static variable
+        static $staticVar = 0;
+
+        // Increment the static variable
+        $staticVar++;
+
+        // Use the static variable
+        return $staticVar;
+    }
+
+    // on second echo data has been stored in variable due to static property
+    echo myFunction2();
+    echo myFunction2();
+    echo myFunction2();
+
+    // class scope
+    class MyClass
+    {
+        // Define a class variable
+        public $classVar = "Hello, World!";
+
+        // Define a class method
+        public function myMethod()
+        {
+            // Use the class variable
+            echo $this->classVar; // Output: Hello, World!
+        }
+    }
+
+    ?>
+
+</body>
+
+<style>
+    html {
+        background: #333333;
+        color: tomato;
+    }
+</style>
+
+</html>

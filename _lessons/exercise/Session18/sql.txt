@@ -1,0 +1,12 @@
+// Insert data to SQL
+INSERT INTO users (username, pwd, email) VALUES ('Krossing', 'dani123', 'johndoe@gmail.com');
+INSERT INTO users (username, pwd, email) VALUES ('Basse', 'basse123', 'basse@gmail.com');
+
+// update data in SQL
+UPDATE users SET username = 'BasseIsCool', pwd = 'basse456' WHERE id = 2
+
+// delete data in SQL
+DELETE FROM users WHERE id = 1;
+
+// insert into comments
+INSERT INTO comments (username, comment_text, users_id) VALUES ('Krossing', 'This is a comment on a website!', 3);

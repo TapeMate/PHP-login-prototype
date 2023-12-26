@@ -1,0 +1,29 @@
+// Create Data Table in SQL for our users:
+CREATE TABLE users (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL,
+    pwd VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    PRIMARY KEY (id)
+);
+
+// Create another Table in SQL for comments
+CREATE TABLE comments (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL,
+    comment_text TEXT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    users_id INT(11),
+    PRIMARY KEY (id),
+    FOREIGN KEY (users_id) REFERENCES users (id) ON DELETE SET NULL
+);
+
+// Closing argumnents:
+// id is our PRIVATE KEY what means, it cant be duplicated
+// it is defined in the the line which sais: PRIMARY KEY (id)
+// in the comments table we created a connection to the users table
+// we did this with defining users_id as an INT
+// second we defined a FOREIGN KEY and referenced to the created users_id
+// last we made the cross table connection on users (id)
+// we also defined that, in case of deletion, we replace the id with NULL
